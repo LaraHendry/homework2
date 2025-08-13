@@ -14,9 +14,9 @@ Run command: npm i
 
 BDD dependencies in use:
 
-npm install --save-dev @badeball/cypress-cucumber-preprocessor
-npm install --save-dev @bahmutov/cypress-esbuild-preprocessor esbuild
-npm install --save-dev @cypress/webpack-preprocessor webpack
+- @badeball/cypress-cucumber-preprocessor
+- @bahmutov/cypress-esbuild-preprocessor esbuild
+- @cypress/webpack-preprocessor webpack
 
 View cypress.config.js and package.json for configuration
 
