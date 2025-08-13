@@ -1,9 +1,28 @@
-## Install 
+## Summary
 
-Install BDD dependencies
+This repo contains code for the QE foundation assessment 2. 
 
-npm install @badeball/cypress-cucumber-preprocessor --save-dev
+Cypress is used for writing tests and the tests are in Javascript.
+
+The tests check the saucedemo website covering:
+- user login
+- purchasing item
+
+## Install dependencies
+
+Run command: npm i
+
+BDD dependencies in use:
+
+npm install --save-dev @badeball/cypress-cucumber-preprocessor
 npm install --save-dev @bahmutov/cypress-esbuild-preprocessor esbuild
 npm install --save-dev @cypress/webpack-preprocessor webpack
 
 View cypress.config.js and package.json for configuration
+
+## Open cypress 
+
+Run command: npx cypress open
+
+Cypress menu will open, select e2e testing and preferred browser
+View test steps in modal
