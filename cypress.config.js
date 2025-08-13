@@ -1,11 +1,50 @@
-const { defineConfig } = require("cypress");
+import { defineConfig } from "cypress";
+import webpack from "@cypress/webpack-preprocessor";
+import { addCucumberPreprocessorPlugin } from "@badeball/cypress-cucumber-preprocessor";
 
-module.exports = defineConfig({
+async function setupNodeEvents(on, config) {
+  // required for the preprocessor to be able to generate JSON reports after each run, and more,
+  await addCucumberPreprocessorPlugin(on, config)
+
+  on(
+    "file:preprocessor",
+    webpack({
+      webpackOptions: {
+        resolve: {
+          extensions: [".ts", ".js"],
+        },
+        module: {
+          rules: [
+            {
+              test: /\.feature$/,
+              use: [
+                {
+                  loader: "@badeball/cypress-cucumber-preprocessor/webpack",
+                  options: config,
+               
+                },
+              ],
+            },
+          ],
+        },
+      },
+    })
+  );
+
+  // return the config object as it might have been modified by the plugin
+  return config;
+}
+
+export default defineConfig({
   e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
+    // find your BDD .feature files
+    specPattern: "**/*.feature",
+    
+    setupNodeEvents,
   },
-    experimentalStudio: true
+  // find the stepDefinition files corresponding to BDD file
+  env: {
+    stepDefinitions: "cypress/e2e/steps/**/*.js",
+  },
+  experimentalStudio: true,
 });
-
