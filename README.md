@@ -24,5 +24,6 @@ View cypress.config.js and package.json for configuration
 
 Run command: npx cypress open
 
-Cypress menu will open, select e2e testing and preferred browser
-View test steps in modal
+- Cypress menu will open
+- select e2e testing and preferred browser
+- View test steps in modal
