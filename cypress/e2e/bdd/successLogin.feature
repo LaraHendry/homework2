@@ -1,4 +1,7 @@
-Feature: User Login
+Feature: User login
+As a returning user, 
+I want to securely log in to the SauceDemo website, 
+so that I can access the product catalog and proceed with my shopping experience
 
   Scenario: Successful login with valid credentials
     Given I am on the saucedemo login page
