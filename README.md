@@ -12,12 +12,6 @@ The tests check the saucedemo website covering:
 
 Run command: npm i
 
-BDD dependencies in use:
-
-- @badeball/cypress-cucumber-preprocessor
-- @bahmutov/cypress-esbuild-preprocessor esbuild
-- @cypress/webpack-preprocessor webpack
-
 View cypress.config.js and package.json for configuration
 
 ## Open cypress 

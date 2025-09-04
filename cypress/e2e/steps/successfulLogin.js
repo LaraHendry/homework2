@@ -1,17 +1,18 @@
-import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import { LoginPage } from "../../pages/loginPage.js";
 
 const loginPage = new LoginPage();
 
-Given("I am on the saucedemo login page", () => {
-  loginPage.visit();
-});
+describe('Saucedemo Login Functionality', () => {
 
-When("I enter valid credentials and click the login button", () => {
-  loginPage.login("standard_user", "secret_sauce");
-});
+  it('should allow a standard user to log in successfully', () => {
+    loginPage.visit("https://www.saucedemo.com");
 
-Then("I should be redirected to the product catalog page and see the product listings", () => {
-  cy.url().should("include", "/inventory.html");
+    loginPage.login("standard_user", "secret_sauce");
+
+    cy.url().should("include", "/inventory.html");
+    cy.get('[data-test="title"]')
+      .should('be.visible')
+      .and('have.text', 'Products');
+  });
 });
 
