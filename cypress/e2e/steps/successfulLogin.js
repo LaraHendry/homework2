@@ -5,7 +5,7 @@ const loginPage = new LoginPage();
 describe('Saucedemo Login Functionality', () => {
 
   it('should allow a standard user to log in successfully', () => {
-    loginPage.visit("https://www.saucedemo.com");
+    loginPage.visit();
 
     loginPage.login("standard_user", "secret_sauce");
 
