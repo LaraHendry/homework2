@@ -1,11 +1,15 @@
 ## Summary
 
-This repo contains code for the QE foundation assessment 2. 
+This repo contains code for the QE foundation assessment 2.
 
 Cypress is used for writing tests and the tests are in Javascript.
 
-The tests check the saucedemo website covering:
+The tests check the Sauce demo website covering:
+
 - user login
+- adding item to cart
+- view cart
+- completing purchase flow
 - purchasing item
 
 ## Install dependencies
@@ -14,7 +18,7 @@ Run command: npm i
 
 View cypress.config.js and package.json for configuration
 
-## Open cypress 
+## Open cypress
 
 Run command: npx cypress open
 
