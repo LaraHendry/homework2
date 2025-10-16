@@ -3,5 +3,6 @@
     "username": "standard_user", 
     "password": "secret_sauce",
     "inventoryUrl": "/inventory.html",
+    "productPageTitle": "Products",
     "cartUrl": "/cart.html"
 }

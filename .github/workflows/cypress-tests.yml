@@ -1,0 +1,25 @@
+name: Cypress Tests
+
+# runs on every pull request that targets the 'main' branch
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest # use latest version of Ubuntu
+    steps:
+      # checkout the repository code
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # use the official Cypress GitHub Action
+      # action installs dependencies, caches them, and runs tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          # specify browser to run tests in
+          browser: chrome
+          # run tests in headless mode
+          headless: true

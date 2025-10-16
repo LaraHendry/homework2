@@ -1,24 +1,11 @@
-class LoginPage {
-  // Selectors
-  usernameField() {
-    return cy.get('#user-name');
-  }
-  passwordField() {
-    return cy.get('#password');
-  }
-  loginButton() {
-    return cy.get('#login-button');
+export class LoginPage {
+  visit(url) {
+    cy.visit(url);
   }
 
-  // Action
   login(username, password) {
-    this.usernameField().type(username);
-    this.passwordField().type(password);
-    this.loginButton().click();
-  }
-
-  visit(){
-    cy.visit("https://www.saucedemo.com");
+    cy.get('[data-test="username"]').type(username);
+    cy.get('[data-test="password"]').type(password);
+    cy.get('[data-test="login-button"]').click();
   }
 }
-export {LoginPage};
