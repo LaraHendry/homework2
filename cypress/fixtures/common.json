@@ -1,8 +1,19 @@
 {
-    "homeUrl": "https://www.saucedemo.com",
-    "username": "standard_user", 
-    "password": "secret_sauce",
-    "inventoryUrl": "/inventory.html",
-    "productPageTitle": "Products",
-    "cartUrl": "/cart.html"
+  "homeUrl": "https://www.saucedemo.com",
+  "homePageTitle": "Swag Labs",
+  "username": "standard_user",
+  "password": "secret_sauce",
+  "inventoryUrl": "/inventory.html",
+  "productPageTitle": "Products",
+  "cartUrl": "/cart.html",
+  "addToCartButtonText": "Add to cart",
+  "backpackProductName": "Sauce Labs Backpack",
+  "cartBadgeCount": "1",
+  "checkoutUrl": "/checkout-step-one.html",
+  "firstName": "Joe",
+  "lastName": "Testerson",
+  "postalCode": "12345",
+  "checkoutOverviewUrl": "/checkout-step-two.html",
+  "checkoutCompleteUrl": "/checkout-complete.html",
+  "checkoutCompleteMessage": "THANK YOU FOR YOUR ORDER"
 }
