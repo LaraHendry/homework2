@@ -3,6 +3,9 @@
   "homePageTitle": "Swag Labs",
   "username": "standard_user",
   "password": "secret_sauce",
+  "invalidUsername": "invalid_user",
+  "invalidPassword": "wrong_password",
+  "loginErrorMessage": "Epic sadface: Username and password do not match any user in this service",
   "inventoryUrl": "/inventory.html",
   "productPageTitle": "Products",
   "cartUrl": "/cart.html",
@@ -10,10 +13,13 @@
   "backpackProductName": "Sauce Labs Backpack",
   "cartBadgeCount": "1",
   "checkoutUrl": "/checkout-step-one.html",
+  "cartPageTitle": "Your Cart",
+  "informationPageTitle": "Checkout: Your Information",
   "firstName": "Joe",
   "lastName": "Testerson",
   "postalCode": "12345",
   "checkoutOverviewUrl": "/checkout-step-two.html",
+  "checkoutOverviewPageTitle": "Checkout: Overview",
   "checkoutCompleteUrl": "/checkout-complete.html",
-  "checkoutCompleteMessage": "THANK YOU FOR YOUR ORDER"
+  "checkoutCompleteMessage": "Thank you for your order!"
 }

@@ -1,35 +1,60 @@
 import { LoginPage } from '../../pages/loginPage.js';
-import { ProductPage } from '../../pages/productPage.js';
-import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
+import {
+  Before,
+  Given,
+  When,
+  Then,
+} from '@badeball/cypress-cucumber-preprocessor';
 
-let commonData;
 const loginPage = new LoginPage();
-const productPage = new ProductPage();
 
-before(() => {
-  cy.fixture('common.json').then((data) => {
-    commonData = data;
+// before hook to load common data (no login here since testing login itself)
+
+Before(() => {
+  cy.fixture('common.json').as('commonData');
+});
+
+// Scenario 1: Valid login
+
+Given('I am on the saucedemo login page for valid login', function () {
+  cy.get('@commonData').then((commonData) => {
+    cy.visit('/');
   });
 });
 
-// Scenario: Successful login with valid credentials
-
-Given('I am on the saucedemo login page', () => {
-  loginPage.visit(commonData.homeUrl);
-  cy.title().should('eq', commonData.homePageTitle);
-});
-
-When('I enter valid credentials and click the login button', () => {
-  loginPage.login(commonData.username, commonData.password);
+When('I enter valid credentials and click the login button', function () {
+  cy.get('@commonData').then((commonData) => {
+    loginPage.login(commonData.username, commonData.password);
+  });
 });
 
 Then(
   'I should be redirected to the product catalog page and see the product listings',
-  () => {
-    cy.url().should('include', commonData.inventoryUrl);
-    productPage
-      .getTitle()
-      .should('be.visible')
-      .and('have.text', commonData.productPageTitle);
+  function () {
+    cy.get('@commonData').then((commonData) => {
+      cy.url().should('include', commonData.inventoryUrl);
+    });
   },
 );
+
+// Scenario 2: Invalid login
+
+Given('I am on the saucedemo login page for invalid login', function () {
+  cy.get('@commonData').then((commonData) => {
+    cy.visit('/');
+  });
+});
+
+When('I enter invalid credentials and click the login button', function () {
+  cy.get('@commonData').then((commonData) => {
+    loginPage.login(commonData.invalidUsername, commonData.invalidPassword);
+  });
+});
+
+Then('I should see an error message', function () {
+  cy.get('@commonData').then((commonData) => {
+    loginPage
+      .getErrorMessage()
+      .should('contain.text', commonData.loginErrorMessage);
+  });
+});

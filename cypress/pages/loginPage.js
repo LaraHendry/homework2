@@ -1,4 +1,7 @@
 export class LoginPage {
+  pageTitle = '[data-test="title"]';
+  errorMessage = '[data-test="error"]';
+
   visit(url) {
     cy.visit(url);
   }
@@ -8,5 +11,12 @@ export class LoginPage {
     cy.get('[data-test="username"]').type(username);
     cy.get('[data-test="password"]').type(password);
     cy.get('[data-test="login-button"]').click();
+  }
+  getTitle() {
+    return cy.get(this.pageTitle);
+  }
+
+  getErrorMessage() {
+    return cy.get(this.errorMessage);
   }
 }
