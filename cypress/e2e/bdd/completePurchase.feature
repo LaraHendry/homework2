@@ -13,3 +13,18 @@ Scenario: Successfully view item in cart
 Given I have an item in my shopping cart 
 When I click the shopping cart icon 
 Then I should be navigated to the "Your Cart" page and I should see the selected item listed in my cart
+
+Scenario: Successfully proceed to checkout
+Given I am on the "Your Cart" page 
+When I click the "Checkout" button 
+Then I should be navigated to the "Checkout: Your Information" page
+
+Scenario: Successfully view checkout Overview
+Given I am on the "Checkout: Your Information" page 
+When I enter valid shipping information and I click the "Continue" button 
+Then I should be navigated to the "Checkout: Overview" page
+
+Scenario: Successfully complete purchase
+Given I am on the "Checkout: Overview" page 
+When I review the order summary and I click the "Finish" button 
+Then I should be navigated to the "Checkout: Complete!" page and I should see a confirmation message
